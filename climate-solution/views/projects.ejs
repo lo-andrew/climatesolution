@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <title>Climate Solutions</title>
+  </head>
+  <body>
+    <header>
+      <%- include('partials/navbar', { page: '/solutions/projects' }) %>
+    </header>
+
+    <div class="container mx-auto px-4">
+      <div
+        class="hero bg-base-200 min-400 mb-10 rounded-md px-4 mx-4 sm:mx-auto"
+      >
+        <div
+          class="hero-content text-center grid grid-cols-5 gap-2 content-end"
+        >
+          <div class="max-w-md col-span-5 col-start-2 mb-10">
+            <h1 class="text-6xl font-bold">Projects</h1>
+          </div>
+          <div class="">
+            <a
+              href="/solutions/projects?sector=industry"
+              class="btn btn-primary"
+              >Industry</a
+            >
+          </div>
+          <div class="">
+            <a
+              href="/solutions/projects?sector=transportation"
+              class="btn btn-primary"
+              >Transportation</a
+            >
+          </div>
+          <div class="">
+            <a
+              href="/solutions/projects?sector=electricity"
+              class="btn btn-primary"
+              >Electricity</a
+            >
+          </div>
+          <div class="">
+            <a
+              href="/solutions/projects?sector=land+sink"
+              class="btn btn-primary"
+              >Land Sinks</a
+            >
+          </div>
+          <div class="">
+            <a href="/solutions/projects?sector=food" class="btn btn-primary"
+              >Agriculture</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="table w-full text-left border rounded-lg shadow-md">
+          <thead class="bg-base-300">
+            <tr>
+              <th>Title</th>
+              <th>Sector</th>
+              <th>Summary</th>
+              <th>Link</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% projects.forEach(project => { %>
+            <tr>
+              <td><%= project.title %></td>
+              <td><%= project.Sector.sector_name %></td>
+              <td><%= project.summary_short %></td>
+              <td>
+                <a
+                  href="/solutions/projects/<%= project.id %>"
+                  class="btn btn-primary"
+                  >Details</a
+                >
+              </td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

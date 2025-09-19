@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <title>Climate Solutions</title>
+  </head>
+  <body>
+    <header><%- include('partials/navbar', {page: ''}) %></header>
+    <div class="grid grid-cols-6 gap-4">
+      <div class="col-span-4 col-start-2">
+        <h1 class="text-5xl"><%=project.title%></h1>
+      </div>
+
+      <div class="col-span-4 col-start-2 mb-6">
+        <p class="text-sm">
+          Below, you will find detailed information about the project:
+          <%=project.title%>
+        </p>
+      </div>
+
+      <div class="col-span-4 col-start-2">
+        <p><%=project.intro_short%></p>
+      </div>
+
+      <div class="col-span-4 col-start-2 mt-6 mb-6">
+        <img src="<%=project.feature_img_url%>" />
+      </div>
+
+      <div class="col-span-4 col-start-2"><p><%=project.impact%></p></div>
+
+      <div class="col-span-4 col-start-2">
+        <a
+          class="btn btn-primary"
+          target="_blank"
+          href="<%=project.original_source_url%>"
+          >More Info</a
+        >
+      </div>
+
+      <% if(session.user){ %>
+      <div class="col-span-4 col-start-2">
+        <a class="btn" href="/solutions/editProject/<%= project.id %>">Edit</a>
+      </div>
+      <% } %>
+
+      <div class="col-span-4 col-start-2 mt-20">
+        <blockquote class="italic" id="quote"></blockquote>
+        <p id="author"></p>
+      </div>
+
+      <div class="col-span-4 col-start-2 mb-10">
+        <a class="btn" href="#" onclick="history.back(); return false;">Back</a>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        function getQuote() {
+          fetch("https://dummyjson.com/quotes/random")
+            .then((res) => res.json())
+            .then((data) => {
+              document.getElementById("quote").innerText = `"${data.quote}"`;
+              document.getElementById("author").innerText = `- ${data.author}`;
+            })
+            .catch((err) => {
+              console.error("error fetching quote:", err);
+              document.getElementById("quote").innerText =
+                "failed to load quote.";
+            });
+        }
+
+        getQuote(); // call when page loads
+      });
+    </script>
+  </body>
+</html>

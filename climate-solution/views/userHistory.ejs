@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <title>Climate Solutions</title>
+  </head>
+  <body>
+    <!-- default to '/' route -->
+    <header><%- include('partials/navbar', { page: '/' }) %></header>
+
+    <div class="container mx-auto">
+      <!-- hero Content -->
+      <div
+        class="hero bg-base-200 min-h-[400px] mb-10 rounded-md px-4 mx-4 sm:mx-auto"
+      >
+        <div class="hero-content text-center">
+          <div class="max-w-md">
+            <h1 class="text-5xl font-bold"><%= session.user.userName %></h1>
+            <p class="py-6">User History: <%= session.user.email %></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="table w-full text-left border rounded-lg shadow-md">
+          <thead class="bg-base-300">
+            <tr>
+              <th>Login Date/Time</th>
+              <th>Client Information</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% session.user.loginHistory.forEach(login => { %>
+            <tr>
+              <td><%= new Date(login.dateTime).toLocaleString() %></td>
+              <td><%= login.userAgent %></td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <title>Climate Solutions</title>
+  </head>
+  <body>
+    <!-- default to '/' route -->
+    <header><%- include('partials/navbar', { page: '/' }) %></header>
+
+    <div class="container mx-auto">
+      <!-- Hero Content -->
+      <div
+        class="hero bg-base-200 min-400 mb-10 rounded-md px-4 mx-4 sm:mx-auto"
+      >
+        <div class="hero-content text-center">
+          <div class="max-w-md">
+            <h1 class="text-5xl font-bold">Welcome to Climate Solutions</h1>
+            <p class="py-6">Please explore and read about our projects below</p>
+            <a href="/solutions/projects" class="btn btn-primary">Projects</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- grid -->
+      <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 mb-10">
+        <!-- column -->
+        <div class="border-1">
+          <!-- card -->
+          <div class="card w-75 bg-base-90 shadow-xl">
+            <figure>
+              <img
+                class="h-auto max-w-md"
+                src="https://drawdown.org/sites/default/files/solutions/solution_biomass01.jpg"
+                alt="biomass power"
+              />
+            </figure>
+            <div class="card-body">
+              <h2 class="card-title">Biomass Power</h2>
+              <p>
+                Biomass feedstock can replace fossil fuels for generating heat
+                and electricity. Perennial biomass offers a “bridge” to a clean,
+                renewable energy future.
+              </p>
+              <div class="card-actions justify-end">
+                <a href="/solutions/projects/4" class="btn btn-primary"
+                  >Details</a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- card -->
+        </div>
+        <div class="border-1">
+          <!-- card -->
+          <div class="card w-75 bg-base-90 shadow-xl">
+            <figure>
+              <img
+                class="h-auto max-w-md"
+                src="https://drawdown.org/sites/default/files/solutions2020/solution_recycledmetals_0.jpg"
+                alt="Recycled metals"
+              />
+            </figure>
+            <div class="card-body">
+              <h2 class="card-title">Recycled Metals</h2>
+              <p>
+                Metals are extracted from nonrenewable ores. Recycled metals
+                capitalize on already extracted materials—making it possible to
+                produce goods more efficiently, reduce the need to extract new
+                resources, and cut down on energy and water use.
+              </p>
+              <div class="card-actions justify-end">
+                <a href="/solutions/projects/17" class="btn btn-primary"
+                  >Details</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- column -->
+        <div class="border-1">
+          <!-- card -->
+          <div class="card w-75 bg-base-90 shadow-xl">
+            <figure>
+              <img
+                class="h-auto max-w-md"
+                src="https://drawdown.org/sites/default/files/solutions2020/solution_alternativecement02.jpg"
+                alt="alternative cement"
+              />
+            </figure>
+            <div class="card-body">
+              <h2 class="card-title">Alternative Cement</h2>
+              <p>
+                Conventional cement production is a significant source of carbon
+                dioxide. Reformulation can reduce emissions by millions of
+                metric tons each year.
+              </p>
+              <div class="card-actions justify-end">
+                <a href="/solutions/projects/2" class="btn btn-primary"
+                  >Details</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- column -->
+      </div>
+    </div>
+  </body>
+</html>
